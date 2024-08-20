@@ -4,41 +4,46 @@
 
 ### 1. Apply Postgres ConfigMap
 ```bash
-kubectl apply -f cloud-native-postgres-configmap.yaml
+minikube minikube kubectl -- apply -f cloud-native-postgres-configmap.yaml
 ```
 **Check ConfigMap**
 ```bash
-kubectl get configmap
+minikube kubectl -- get configmap
 ```
 
 ### 2. Apply Postgres Persistent Volume
 ```bash
-kubectl apply -f cloud-native-postgres-pv.yaml
+minikube kubectl -- apply -f cloud-native-postgres-pv.yaml
 ```
 **Check Persistent Volume**
 ```bash
-kubectl get pv
+minikube kubectl -- get pv
 ```
 
 ### 3. Apply Postgres Claim
 ```bash
-kubectl apply -f cloud-native-postgres-pvc.yaml
+minikube kubectl -- apply -f cloud-native-postgres-pvc.yaml
 ```
 **Check Persistent Volume Claim**
 ```bash
-kubectl get pvc
+minikube kubectl -- get pvc
 ```
 
 ### 4. Apply Postgres Deployment
 ```bash
-kubectl apply -f cloud-native-postgres-deployment.yaml
+minikube kubectl -- apply -f cloud-native-postgres-deployment.yaml
 ```
 **Check Deployment**
 ```bash
-kubectl get deployment
+minikube kubectl -- get deployment
 ```
 
 ### 5. Apply Postgres Service
 ```bash
-kubectl apply -f cloud-native-postgres-service.yaml
+minikube kubectl -- apply -f cloud-native-postgres-service.yaml
+```
+
+### 6. Port forward
+```bash
+minikube kubectl -- port-forward service/postgres 15432:5432
 ```
